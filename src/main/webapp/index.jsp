@@ -5,6 +5,8 @@
     <title>我是标题</title>
 </head>
 <body>
-我是body内容
+获取model中的属性:
+<br>
+${date}
 </body>
 </html>

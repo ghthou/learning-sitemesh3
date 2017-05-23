@@ -1,12 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemesh>
+    <!--配置默认装配页面,如果没有其他匹配的页面,使用这个-->
+    <mapping decorator="/decorators/default.jsp"/>
+    <!--将 /index.html 页面使用 /decorators/default.html 进行装配-->
     <mapping path="/index.html" decorator="/decorators/default.html"/>
+    <!--将 /index.jsp 页面使用 /decorators/default.jsp 进行装配-->
     <mapping path="/index.jsp" decorator="/decorators/default.jsp"/>
+
+    <!--将 /multi.jsp 页面使用 /decorators/multi_1.jsp,/decorators/multi_2.jsp,/decorators/multi_3.jsp 三个页面依次装配-->
     <mapping>
         <path>/multi.jsp</path>
         <decorator>/decorators/multi_1.jsp</decorator>
         <decorator>/decorators/multi_2.jsp</decorator>
         <decorator>/decorators/multi_3.jsp</decorator>
     </mapping>
+
+    <!--对 /exclude 下的所有页面排除装配-->
     <mapping path="/exclude/*" exclue="true"/>
+
+    <!-- 默认情况下,sitemesh3 只对 Content-Type 中包含 text/html 的页面进行装配
+    在此可以配置多个 Content-Type 类型 -->
+    <mime-type>text/html</mime-type>
+    <mime-type>application/vnd.wap.xhtml+xml</mime-type>
+    <mime-type>application/xhtml+xml</mime-type>
+
+    <!--sitemesh3 默认支持 title, head, body 三个标签,如果需要支持其他标签,可以通过实现 org.sitemesh.content.tagrules.TagRuleBundle 接口来完成对标签的拓展-->
+    <content-processor>
+        <tag-rule-bundle class="com.github.ghthou.learning.sitemesh3.ExpandTagRuleBundle"/>
+    </content-processor>
 </sitemesh>
