@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemesh>
+    <mapping path="/index.html" decorator="/decorators/default.html"/>
+    <mapping path="/index.jsp" decorator="/decorators/default.jsp"/>
+    <mapping>
+        <path>/multi.jsp</path>
+        <decorator>/decorators/multi_1.jsp</decorator>
+        <decorator>/decorators/multi_2.jsp</decorator>
+        <decorator>/decorators/multi_3.jsp</decorator>
+    </mapping>
+    <mapping path="/exclude/*" exclue="true"/>
+</sitemesh>

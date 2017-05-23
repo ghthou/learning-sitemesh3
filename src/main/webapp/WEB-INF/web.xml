@@ -2,12 +2,18 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://java.sun.com/xml/ns/javaee"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-         id="taotao" version="2.5">
-    <display-name>taotao-search</display-name>
+         version="2.5">
+
+    <display-name>learning-sitemesh3</display-name>
 
     <filter>
         <filter-name>sitemesh</filter-name>
         <filter-class>org.sitemesh.config.ConfigurableSiteMeshFilter</filter-class>
+        <!--设置配置文件路径 默认为 /WEB-INF/sitemesh3.xml -->
+        <init-param>
+            <param-name>configFile</param-name>
+            <param-value>/WEB-INF/classes/sitemesh3.xml</param-value>
+        </init-param>
     </filter>
     <filter-mapping>
         <filter-name>sitemesh</filter-name>
